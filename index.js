@@ -1,68 +1,185 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const generateHTML = (userData) => 
-`# ${userData.title}
+function generateRM(appInfo){
+    let markup = `# ${appInfo.title}`
+    switch(appInfo.license){
+        case "MIT":
+            markup += `
+            [MIT License](https://img.shields.io/github/license/0zrk23/readme-creator)
+            `;
+            break;
+        case "Apache":
+            markup += `
+            [Apache License](https://img.shields.io/badge/license-Apache%202.0-blue)
+            `;
+            break;
+        case "GNU General Public License v3.0":
+            markup += `
+            [General Publick License License](https://img.shields.io/badge/license-GPL-blue)
+            `;
+            break;
+        case "BSD 2-Clause 'Simplified' License":
+            markup += `
+            [BSD 2-Clause](https://img.shields.io/badge/license-BDS-green)
+            `;
+            break;
+        case "BSD 3-Clause 'Simplified' License":
+            markup += `
+            [BSD 3-Clause](https://img.shields.io/badge/license-BDS-green)
+            `;
+            break;
+        case "Boost Software License 1.0":
+            markup +=`
+            [BS License](https://img.shields.io/badge/license-BSL-green)
+            `;
+            break;
+        case "Creative Commons Zero v1.0 Universal License":
+            markup +=`
+            [CCZ](https://img.shields.io/badge/license-CCZ-green)
+            `;
+            break;
+        case "Eclipse Public License 2.0":
+            markup += `
+            [EPL 2.0](https://img.shields.io/badge/license-CCZ-green)
+            `;
+            break;
+        case "GNU Affero General Public License v3.0":
+            markup += `
+            [GNU](https://img.shields.io/badge/license-GPL-blue)
+            `;
+            break;
+        case "GNU General Public License v2.0":
+            markup += `
+            [GNU](https://img.shields.io/badge/license-GPL-blue)
+            `;
+            break;
+        case "GNU Lesser General Public License v2.1":
+            markup += `
+            [GNI](https://img.shields.io/badge/license-GPL-blue)
+            `;
+            break;
+        case "Mozzila Public License 2.0":
+            markup += `
+            [Mozzila Public License 2.0](https://img.shields.io/badge/license-GPL-blue)
+            `;
+            break;
+        default:
+            markup += `
+            [The Unlicense](https://img.shields.io/badge/license-Unlicense-green)
+            `;
+    }
+    markup += `<p align="center"><img src="http's://via.placeholder.com/1794x1080.png?text=Coming+Soon!" alt="Coming Soon" style="box-sizing: border-box; width: 80%;"></p>
+    
+    ## Description
 
-## Description
+    ${appInfo.description}
+    
+    ## Table of Contents
+    
+     - [Installation](#installation)
+     - [Usage](#usage)
+     - [Credits](#credits)
+     - [License](#license)
+     - [Tests](#tests)
+     - [Questions](#questions)
+     
+     ## Installation
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+     ${appInfo.install}
+     
+     ## Usage
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+     ${appInfo.usage}
+     
+     ## Credits
 
-## Table of Contents (Optional)
+     ${appInfo.credits}
+     
+     ## License
 
-If your README is long, add a table of contents to make it easy for users to find what they need.
+     This project is under the ${appInfo.license}
+     
+     ## Tests
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
+     ${appInfo.tests}
+     
+     ## Questions
+     
+     ${appInfo.questions}
 
-## Installation
+      - [GitHub Profile](${appInfo.github})
+      - [Email](${appInfo.email})`; 
+}
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
 
-## Usage
+inquirer
+  .prompt([
+    {
+        type: 'input',
+        name: 'title',
+        message: 'What is the name of the web application?',
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'Please select one of the following licenses',
+        choices: [
+            "MIT",
+            "Apache",
+            "GNU General Public License v3.0",
+            "BSD 2-Clause 'Simplified' License",
+            "BSD 3-Clause 'Simplified' License",
+            "Boost Software License 1.0",
+            "Creative Commons Zero v1.0 Universal License",
+            "Eclipse Public License 2.0",
+            "GNU Affero General Public License v3.0",
+            "GNU General Public License v2.0",
+            "GNU Lesser General Public License v2.1",
+            "Mozzila Public License 2.0",
+            "The Unlicense"
+        ]
+    },
+    {
+        type: 'input',
+        name: 'description',
+        message: 'Please Write a description for the web app.\nYou can include:\n - What was your motivation?\n - Why did you build this project?\n - What problem does it solve?\n - What did you learn?'
+    },
+    {
+        type: 'input',
+        name: 'installation',
+        message: 'Please type in instructions for installing the application.\nLeave blank for N/A'
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'Please type in instructions on how to use the application.'
+    },
+    {
+        type: 'input',
+        name: 'credits',
+        message: 'Please type in the creadits for the project'
+    },
+    {
+        license
+    },
+    {
+        test
+    },
+    {
+        questions
+    }
+    {
+        github
+    }
+    {
+        email
+    }
+  ])
+  .then((answers) => {
+    const readmeContents = generateRM(answers);
 
-Provide instructions and examples for use. Include screenshots as needed.
-
-To add a screenshot, create an assets/images folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-    [alt text](assets/images/screenshot.png)
-
-## Credits
-
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
-
-## License
-
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
-
----
-
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-
-## Badges
-
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-
-## Features
-
-If your project has a lot of features, list them here.
-
-## How to Contribute
-
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
-
-## Tests
-
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.`;
+    fs.writeFile('README.md', readmeContents, (err) =>
+      err ? console.log(err) : console.log('Successfully created README.mn!')
+    );
+  });
