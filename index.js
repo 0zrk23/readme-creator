@@ -73,17 +73,19 @@ markup +=` - [Installation](#installation)
 markup +=` - [Usage](#usage)
  - [Credits](#credits)
  - [License](#license)
- - [Tests](#tests)
- - [Questions](#questions)
+ `;
+ if(appInfo.tests){
+markup += `- [Tests](#tests)
+`;
+ }
+ markup += `- [Questions](#questions)
 
 `
-     if(appInfo.install){
-        markup += `## Installation
-
+if(appInfo.install){
+markup += `## Installation
 ${appInfo.install}
-
 `;
-     }
+}
 
      markup += `## Usage
 
@@ -120,7 +122,7 @@ inquirer
     {
         type: 'input',
         name: 'title',
-        message: 'What is the name of the web application?',
+        message: 'What is the name of the web application?\n',
     },
     {
         type: 'list',
@@ -145,48 +147,48 @@ inquirer
     {
         type: 'input',
         name: 'description',
-        message: 'Please Write a description for the web app.\nYou can include:\n - What was your motivation?\n - Why did you build this project?\n - What problem does it solve?\n - What did you learn?'
+        message: 'Please Write a description for the web app.\nYou can include:\n - What was your motivation?\n - Why did you build this project?\n - What problem does it solve?\n - What did you learn?\n'
     },
     {
         type: 'input',
         name: 'install',
-        message: 'Please type in instructions for installing the application.\nLeave blank for N/A'
+        message: 'Please type in instructions for installing the application.\nLeave blank for N/A\n'
     },
     {
         type: 'input',
         name: 'usage',
-        message: 'Please type in instructions on how to use the application.'
+        message: 'Please type in instructions on how to use the application.\n'
     },
     {
         type: 'input',
         name: 'credits',
-        message: 'Please type in the creadits for the project'
+        message: 'Please type in the creadits for the project\n'
     },
     {
         type: 'input',
         name: 'tests',
-        message: 'Please type the tests used in this project\nLeave blank for N/A'
+        message: 'Please type the tests used in this project\nLeave blank for N/A\n'
     },
     {
         type: 'input',
         name: 'questions',
-        message: "Please type instructions for how to contact you"
+        message: "Please type instructions for how to contact you\n"
     },
     {
         type: 'input',
         name: 'github',
-        message: "Please enter a link to your GitHub Profile"
+        message: "Please enter a link to your GitHub Profile\n"
     },
     {
         type: 'input',
         name: 'email',
-        message: "Please enter your email"
+        message: "Please enter your email\n"
     }
   ])
   .then((answers) => {
     const readmeContents = generateRM(answers);
 
-    fs.writeFile('README.md', readmeContents, (err) =>
+    fs.writeFile('generated-README.md', readmeContents, (err) =>
       err ? console.log(err) : console.log('Successfully created README.mn!')
     );
   });
