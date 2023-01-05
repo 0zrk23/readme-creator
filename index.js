@@ -2,114 +2,116 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 function generateRM(appInfo){
+    console.log(appInfo.install)
     let markup = `# ${appInfo.title}`
     switch(appInfo.license){
-        case "MIT":
+        case "MIT License":
             markup += `
-            [MIT License](https://img.shields.io/github/license/0zrk23/readme-creator)
-            `;
+[MIT License](https://img.shields.io/github/license/0zrk23/readme-creator)`;
             break;
-        case "Apache":
+        case "Apache License 2.0":
             markup += `
-            [Apache License](https://img.shields.io/badge/license-Apache%202.0-blue)
-            `;
+[Apache License](https://img.shields.io/badge/license-Apache%202.0-blue)`;
             break;
         case "GNU General Public License v3.0":
             markup += `
-            [General Publick License License](https://img.shields.io/badge/license-GPL-blue)
-            `;
+[General Publick License License](https://img.shields.io/badge/license-GPL-blue)`;
             break;
         case "BSD 2-Clause 'Simplified' License":
             markup += `
-            [BSD 2-Clause](https://img.shields.io/badge/license-BDS-green)
-            `;
+[BSD 2-Clause](https://img.shields.io/badge/license-BDS-green)`;
             break;
         case "BSD 3-Clause 'Simplified' License":
             markup += `
-            [BSD 3-Clause](https://img.shields.io/badge/license-BDS-green)
-            `;
+[BSD 3-Clause](https://img.shields.io/badge/license-BDS-green)`;
             break;
         case "Boost Software License 1.0":
             markup +=`
-            [BS License](https://img.shields.io/badge/license-BSL-green)
-            `;
+[BS License](https://img.shields.io/badge/license-BSL-green)`;
             break;
         case "Creative Commons Zero v1.0 Universal License":
             markup +=`
-            [CCZ](https://img.shields.io/badge/license-CCZ-green)
-            `;
+[CCZ](https://img.shields.io/badge/license-CCZ-green)`;
             break;
         case "Eclipse Public License 2.0":
             markup += `
-            [EPL 2.0](https://img.shields.io/badge/license-CCZ-green)
-            `;
+[EPL 2.0](https://img.shields.io/badge/license-CCZ-green)`;
             break;
         case "GNU Affero General Public License v3.0":
             markup += `
-            [GNU](https://img.shields.io/badge/license-GPL-blue)
-            `;
+[GNU](https://img.shields.io/badge/license-GPL-blue)`;
             break;
         case "GNU General Public License v2.0":
             markup += `
-            [GNU](https://img.shields.io/badge/license-GPL-blue)
-            `;
+[GNU](https://img.shields.io/badge/license-GPL-blue)`;
             break;
         case "GNU Lesser General Public License v2.1":
             markup += `
-            [GNI](https://img.shields.io/badge/license-GPL-blue)
-            `;
+[GNI](https://img.shields.io/badge/license-GPL-blue)`;
             break;
         case "Mozzila Public License 2.0":
             markup += `
-            [Mozzila Public License 2.0](https://img.shields.io/badge/license-GPL-blue)
-            `;
+[Mozzila Public License 2.0](https://img.shields.io/badge/license-GPL-blue)`;
             break;
         default:
             markup += `
-            [The Unlicense](https://img.shields.io/badge/license-Unlicense-green)
-            `;
+[The Unlicense](https://img.shields.io/badge/license-Unlicense-green)`;
     }
-    markup += `<p align="center"><img src="http's://via.placeholder.com/1794x1080.png?text=Coming+Soon!" alt="Coming Soon" style="box-sizing: border-box; width: 80%;"></p>
-    
-    ## Description
+    markup += `
+<p align="center"><img src="https://via.placeholder.com/1794x1080.png?text=Coming+Soon!" alt="Coming Soon" style="box-sizing: border-box; width: 80%;"></p>
 
-    ${appInfo.description}
-    
-    ## Table of Contents
-    
-     - [Installation](#installation)
-     - [Usage](#usage)
-     - [Credits](#credits)
-     - [License](#license)
-     - [Tests](#tests)
-     - [Questions](#questions)
-     
-     ## Installation
+## Description
 
-     ${appInfo.install}
-     
-     ## Usage
+${appInfo.description}
 
-     ${appInfo.usage}
-     
-     ## Credits
+## Table of Contents
+`
+if(appInfo.install){
+markup +=` - [Installation](#installation)
+`;
+}
+markup +=` - [Usage](#usage)
+ - [Credits](#credits)
+ - [License](#license)
+ - [Tests](#tests)
+ - [Questions](#questions)
 
-     ${appInfo.credits}
-     
-     ## License
+`
+     if(appInfo.install){
+        markup += `## Installation
 
-     This project is under the ${appInfo.license}
-     
-     ## Tests
+${appInfo.install}
 
-     ${appInfo.tests}
-     
-     ## Questions
-     
-     ${appInfo.questions}
+`;
+     }
 
-      - [GitHub Profile](${appInfo.github})
-      - [Email](${appInfo.email})`; 
+     markup += `## Usage
+
+${appInfo.usage}
+
+## Credits
+
+${appInfo.credits}
+
+## License
+
+This project is under the ${appInfo.license}
+
+`
+     if(appInfo.test){
+        `## Tests
+
+        ${appInfo.tests}
+        `
+     }
+
+     markup += `## Questions
+     
+${appInfo.questions}
+
+ - [GitHub Profile](${appInfo.github})
+ - [Email](${appInfo.email})`; 
+      return markup;
 }
 
 
@@ -125,8 +127,8 @@ inquirer
         name: 'license',
         message: 'Please select one of the following licenses',
         choices: [
-            "MIT",
-            "Apache",
+            "MIT License",
+            "Apache License 2.0",
             "GNU General Public License v3.0",
             "BSD 2-Clause 'Simplified' License",
             "BSD 3-Clause 'Simplified' License",
@@ -147,7 +149,7 @@ inquirer
     },
     {
         type: 'input',
-        name: 'installation',
+        name: 'install',
         message: 'Please type in instructions for installing the application.\nLeave blank for N/A'
     },
     {
@@ -161,19 +163,24 @@ inquirer
         message: 'Please type in the creadits for the project'
     },
     {
-        license
+        type: 'input',
+        name: 'tests',
+        message: 'Please type the tests used in this project\nLeave blank for N/A'
     },
     {
-        test
+        type: 'input',
+        name: 'questions',
+        message: "Please type instructions for how to contact you"
     },
     {
-        questions
-    }
+        type: 'input',
+        name: 'github',
+        message: "Please enter a link to your GitHub Profile"
+    },
     {
-        github
-    }
-    {
-        email
+        type: 'input',
+        name: 'email',
+        message: "Please enter your email"
     }
   ])
   .then((answers) => {
