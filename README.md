@@ -13,8 +13,8 @@ This application is a README generator designed to streamline making a README fo
  - [Questions](#questions)
 
 ## Usage
-
-https://drive.google.com/file/d/17SjvhNPR327H4LeZPdiXLbd2P2dZiKmL/view
+[how-to-use-readme-generator.webm](https://user-images.githubusercontent.com/115580058/211123764-01d7d6fe-90c0-4a7e-b005-929d372c9569.webm)
+<!-- https://drive.google.com/file/d/17SjvhNPR327H4LeZPdiXLbd2P2dZiKmL/view -->
 <!-- <iframe src="https://drive.google.com/file/d/17SjvhNPR327H4LeZPdiXLbd2P2dZiKmL/preview" width="640" height="480"></iframe> -->
 <!-- <video align="center" controls><source src="./assets/videos/how-to-use-readme-generator.webm" type="video/webm" alt="How to use README generator"></video>
 ![](./assets/videos/how-to-use-readme-generator.webm) -->
