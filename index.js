@@ -7,55 +7,55 @@ function generateRM(appInfo){
     switch(appInfo.license){
         case "MIT License":
             markup += `
-[MIT License](https://img.shields.io/github/license/0zrk23/readme-creator)`;
+![MIT License](https://img.shields.io/github/license/0zrk23/readme-creator)`;
             break;
         case "Apache License 2.0":
             markup += `
-[Apache License](https://img.shields.io/badge/license-Apache%202.0-blue)`;
+![Apache License](https://img.shields.io/badge/license-Apache%202.0-blue)`;
             break;
         case "GNU General Public License v3.0":
             markup += `
-[General Publick License License](https://img.shields.io/badge/license-GPL-blue)`;
+![General Publick License License](https://img.shields.io/badge/license-GPL-blue)`;
             break;
         case "BSD 2-Clause 'Simplified' License":
             markup += `
-[BSD 2-Clause](https://img.shields.io/badge/license-BDS-green)`;
+![BSD 2-Clause](https://img.shields.io/badge/license-BDS-green)`;
             break;
         case "BSD 3-Clause 'Simplified' License":
             markup += `
-[BSD 3-Clause](https://img.shields.io/badge/license-BDS-green)`;
+![BSD 3-Clause](https://img.shields.io/badge/license-BDS-green)`;
             break;
         case "Boost Software License 1.0":
             markup +=`
-[BS License](https://img.shields.io/badge/license-BSL-green)`;
+![BS License](https://img.shields.io/badge/license-BSL-green)`;
             break;
         case "Creative Commons Zero v1.0 Universal License":
             markup +=`
-[CCZ](https://img.shields.io/badge/license-CCZ-green)`;
+![CCZ](https://img.shields.io/badge/license-CCZ-green)`;
             break;
         case "Eclipse Public License 2.0":
             markup += `
-[EPL 2.0](https://img.shields.io/badge/license-CCZ-green)`;
+![EPL 2.0](https://img.shields.io/badge/license-CCZ-green)`;
             break;
         case "GNU Affero General Public License v3.0":
             markup += `
-[GNU](https://img.shields.io/badge/license-GPL-blue)`;
+![GNU](https://img.shields.io/badge/license-GPL-blue)`;
             break;
         case "GNU General Public License v2.0":
             markup += `
-[GNU](https://img.shields.io/badge/license-GPL-blue)`;
+![GNU](https://img.shields.io/badge/license-GPL-blue)`;
             break;
         case "GNU Lesser General Public License v2.1":
             markup += `
-[GNI](https://img.shields.io/badge/license-GPL-blue)`;
+![GNI](https://img.shields.io/badge/license-GPL-blue)`;
             break;
         case "Mozzila Public License 2.0":
             markup += `
-[Mozzila Public License 2.0](https://img.shields.io/badge/license-GPL-blue)`;
+![Mozzila Public License 2.0](https://img.shields.io/badge/license-GPL-blue)`;
             break;
         default:
             markup += `
-[The Unlicense](https://img.shields.io/badge/license-Unlicense-green)`;
+![The Unlicense](https://img.shields.io/badge/license-Unlicense-green)`;
     }
     markup += `
 <p align="center"><img src="https://via.placeholder.com/1794x1080.png?text=Coming+Soon!" alt="Coming Soon" style="box-sizing: border-box; width: 80%;"></p>

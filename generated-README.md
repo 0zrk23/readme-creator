@@ -1,5 +1,5 @@
 # README Generator
-[MIT License](https://img.shields.io/github/license/0zrk23/readme-creator)
+![MIT License](https://img.shields.io/github/license/0zrk23/readme-creator)
 <p align="center"><img src="https://via.placeholder.com/1794x1080.png?text=Coming+Soon!" alt="Coming Soon" style="box-sizing: border-box; width: 80%;"></p>
 
 ## Description
