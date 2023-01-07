@@ -14,7 +14,8 @@ This application is a README generator designed to streamline making a README fo
 
 ## Usage
 
-<iframe src="https://drive.google.com/file/d/17SjvhNPR327H4LeZPdiXLbd2P2dZiKmL/preview" width="640" height="480"></iframe>
+https://drive.google.com/file/d/17SjvhNPR327H4LeZPdiXLbd2P2dZiKmL/view
+<!-- <iframe src="https://drive.google.com/file/d/17SjvhNPR327H4LeZPdiXLbd2P2dZiKmL/preview" width="640" height="480"></iframe> -->
 <!-- <video align="center" controls><source src="./assets/videos/how-to-use-readme-generator.webm" type="video/webm" alt="How to use README generator"></video>
 ![](./assets/videos/how-to-use-readme-generator.webm) -->
 
