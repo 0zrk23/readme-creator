@@ -14,7 +14,7 @@ This application is a README generator designed to streamline making a README fo
 
 ## Usage
 
-<video align="center" controls><source src="./assets/videos/how-to-use-readme-generator.webm" alt="How to use README generator"></video>
+<video align="center" controls><source src="./assets/videos/how-to-use-readme-generator.webm" type="video/webm" alt="How to use README generator"></video>
 <!-- [How to use README generator](./assets/videos/how-to-use-readme-generator.webm) -->
 
 To use the application, open a CLI and 'cd' into the directory containing the index.js. Once you are in the directory, type in 'node index.js' into the CLI and follow the prompts it gives you. Once you complete the prompts, the application will generate a README in the directory you used it in.
