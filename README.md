@@ -1,6 +1,6 @@
 # README Generator
 [MIT License](https://img.shields.io/github/license/0zrk23/readme-creator)
-<p align="center"><img src="https://via.placeholder.com/1794x1080.png?text=Coming+Soon!" alt="README Generator" style="box-sizing: border-box; width: 80%;"></p>
+<p align="center"><img src="./assets/images/READMEGeneratorMainImage.png" alt="README Generator" style="box-sizing: border-box; width: 80%;"></p>
 
 ## Description
 
@@ -13,6 +13,9 @@ This application is a README generator designed to streamline making a README fo
  - [Questions](#questions)
 
 ## Usage
+
+<video align="center" controls><source src="./assets/videos/how-to-use-readme-generator.webm" alt="How to use README generator"></video>
+<!-- [How to use README generator](./assets/videos/how-to-use-readme-generator.webm) -->
 
 To use the application, open a CLI and 'cd' into the directory containing the index.js. Once you are in the directory, type in 'node index.js' into the CLI and follow the prompts it gives you. Once you complete the prompts, the application will generate a README in the directory you used it in.
 
